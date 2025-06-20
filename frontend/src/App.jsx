@@ -9,7 +9,8 @@ const App = () => {
 
     const handleAddText = async (textValue) => {
         if (textValue) {
-            const url = 'http://localhost:3000/api/texts';
+            const baseURL = import.meta.env.VITE_BACKEND_BASE_URL;
+            const url = `${baseURL}/api/texts`;
             try {
                 setLoading(true);
                 const response = await fetch(url, {

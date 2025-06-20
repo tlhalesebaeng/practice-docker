@@ -8,7 +8,8 @@ const TextList = () => {
     const [error, setError] = useState('');
 
     const getData = async () => {
-        const url = 'http://localhost:3000/api/texts';
+        const baseURL = import.meta.env.VITE_BACKEND_BASE_URL
+        const url = `${baseURL}/api/texts`;
         try {
             setLoading(true);
             const response = await fetch(url);
@@ -32,7 +33,8 @@ const TextList = () => {
     }, []);
 
     const handleDelete = async (id) => {
-        const url = `http://localhost:3000/api/texts/${id}`;
+        const baseURL = import.meta.env.VITE_BACKEND_BASE_URL
+        const url = `${baseURL}/api/texts/${id}`;
         try {
             setLoading(true);
             const response = await fetch(url, {
@@ -52,7 +54,8 @@ const TextList = () => {
     };
 
     const handleUpdate = async (id, value) => {
-        const url = `http://localhost:3000/api/texts/${id}`;
+        const baseURL = import.meta.env.VITE_BACKEND_BASE_URL
+        const url = `${baseURL}/api/texts/${id}`;
         try {
             setLoading(true);
             const response = await fetch(url, {
