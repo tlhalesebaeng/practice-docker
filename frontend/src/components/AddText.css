@@ -1,0 +1,30 @@
+.add-text {
+    margin: 20px 0px;
+}
+
+.add-text p {
+    color: red;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.add-text textarea {
+    width: 200px;
+    height: 100px;
+    padding: 5px;
+}
+
+.add-text div {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.add-text div button {
+    height: 26px;
+    width: 100%;
+}
+
+.add-text div button:hover {
+    cursor: pointer;
+}
