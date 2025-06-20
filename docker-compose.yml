@@ -1,0 +1,38 @@
+
+name: simple-crud-app
+
+services:
+    api:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        env_file: ./backend/config.env
+        volumes:
+            - ./backend:/app
+            - /app/node_modules 
+        networks:
+            - simple-crud-app
+        ports:
+            - 3000:3000
+
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        volumes:
+            - ./frontend:/app
+            - /app/node_modules 
+        networks:
+            - simple-crud-app
+        ports:
+            - 5173:5173
+        command: npm run dev -- --host
+        depends_on:
+            - api
+
+
+networks:
+    simple-crud-app:
+        driver: bridge
