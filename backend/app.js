@@ -13,7 +13,7 @@ dotenv.config({ path: './config.env' });
 app.use(morgan('dev'));
 
 // configure cors for our frontend
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: process.env.FRONTEND_BASE_URL }));
 
 // allow communication with json
 app.use(express.json());
