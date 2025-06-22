@@ -37,9 +37,7 @@ const TextList = () => {
         const url = `${baseURL}/api/texts/${id}`;
         try {
             setLoading(true);
-            const response = await fetch(url, {
-                method: 'DELETE',
-            });
+            const response = await fetch(url, { method: 'DELETE' });
             setLoading(false);
 
             if (!response.ok) {
