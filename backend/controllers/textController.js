@@ -13,7 +13,7 @@ export const getAllTexts = async (req, res) => {
 export const addText = async (req, res) => {
     // verify that the value is provided in the request body
     if (!req.body || !req.body.value) {
-        return res.json({ message: 'Text required! Please provide a text.' });
+        return res.json({ message: 'Text required! Please provide a text' });
     }
 
     // get the text from the request body
