@@ -4,8 +4,6 @@ import morgan from 'morgan';
 import cors from 'cors';
 import textRoute from './routes/textRoute.js';
 
-// comment to be committed to trigger the workflow
-
 // create the server using express
 const app = express(); 
 

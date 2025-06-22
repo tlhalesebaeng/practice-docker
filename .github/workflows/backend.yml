@@ -30,7 +30,8 @@ jobs:
         - name: Delete old container
           run: docker rm -f backend-container
         - name: Run Docker Container
-          run: docker run -d -p 3000:3000 --name backend-container \
+          run: |
+            docker run -d -p 3000:3000 --name backend-container \
             -e PORT=${{ secrets.BACKEND_PORT }} \
             -e DB_URI=${{ secrets.DB_URI }} \
             -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
