@@ -63,7 +63,7 @@ export const deleteText = async (req, res) => {
     // verify that the textId param was provided
     if (!req.params || !req.params.textId) {
         return res.json({
-            message: 'Text ID required! Please provide a text ID.',
+            message: 'Text ID required! Please provide a text ID',
         });
     }
 
