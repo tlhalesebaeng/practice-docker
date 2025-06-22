@@ -31,13 +31,13 @@ export const updateText = async (req, res) => {
     // verify that the textId param was provided
     if (!req.params || !req.params.textId) {
         return res.json({
-            message: 'Text ID required! Please provide a text ID.',
+            message: 'Text ID required! Please provide a text ID',
         });
     }
 
     // verify that the text value is provided in the request body
     if (!req.body || !req.body.value) {
-        return res.json({ message: 'Text required! Please provide a text.' });
+        return res.json({ message: 'Text required! Please provide a text' });
     }
 
     // get the text value from the request body
