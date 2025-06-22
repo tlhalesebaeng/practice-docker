@@ -23,6 +23,7 @@ const App = () => {
                 if (!response.ok) {
                     return setError('Could not add text');
                 }
+                
             } catch (error) {
                 setError('An error occurred!');
                 console.error(error.message);
