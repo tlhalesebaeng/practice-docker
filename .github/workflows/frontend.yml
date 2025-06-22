@@ -1,4 +1,4 @@
-# This is a workflow to build the docker image and deploy it
+# This is a workflow to build the frontend docker image and deploy it
 name: Deploy Frontend Application
 
 on: 
