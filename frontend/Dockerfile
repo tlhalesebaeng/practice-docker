@@ -1,9 +1,22 @@
-FROM node:18-alpine
+FROM node:alpine3.18 as build
 
+# Declare build time environment variables
+ARG BACKEND_BASE_URL
+
+# Set default values for environment variables
+ENV BACKEND_BASE_URL=$BACKEND_BASE_URL
+
+# Build App
 WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci
-
+COPY package.json .
+RUN npm install
 COPY . .
-EXPOSE 5173
+RUN npm run build
+
+# Serve with Nginx
+FROM nginx:1.23-alpine
+WORKDIR /usr/share/nginx/html
+RUN rm -rf *
+COPY --from=build /app/build .
+EXPOSE 80
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
