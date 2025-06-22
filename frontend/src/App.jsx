@@ -25,7 +25,10 @@ const App = () => {
                 }
                 
             } catch (error) {
+                // set an error
                 setError('An error occurred!');
+
+                // log the error to the console
                 console.error(error.message);
             }
         }
