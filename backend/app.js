@@ -4,7 +4,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import textRoute from './routes/textRoute.js';
 
-const app = express(); // allows us to create the server using express
+// create the server using express
+const app = express(); 
 
 // make environment variables accessible
 dotenv.config({ path: './config.env' });
