@@ -4,7 +4,7 @@ FROM node:alpine3.18 as build
 ARG BACKEND_BASE_URL
 
 # Set default values for environment variables
-ENV BACKEND_BASE_URL=$BACKEND_BASE_URL
+ENV VITE_BACKEND_BASE_URL=$BACKEND_BASE_URL
 
 # Build App
 WORKDIR /app
@@ -16,7 +16,7 @@ RUN npm run build
 # Serve with Nginx
 FROM nginx:1.23-alpine
 WORKDIR /usr/share/nginx/html
-RUN rm -rf *
-COPY --from=build /app/build .
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+CMD [ "nginx", "-g", "daemon off;" ]
