@@ -24,8 +24,6 @@ jobs:
         needs: build
         runs-on: [self-hosted, frontend-runner]
         steps:
-            - name: Create Docker network (if not exists)
-              run: docker network create simple-crud-app-network || true
             - name: Pull image from docker hub
               run: docker pull tlhalefosebaeng/simple-crud-app-frontend:latest 
             - name: Delete old container
@@ -33,5 +31,4 @@ jobs:
             - name: Run Docker Container
               run: |
                 docker run -d -p 80:80 --name frontend-container \
-                --network simple-crud-app-network \
                 tlhalefosebaeng/simple-crud-app-frontend
