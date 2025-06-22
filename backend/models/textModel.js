@@ -5,7 +5,7 @@ const textSchema = new Schema(
     {
         value: {
             type: String,
-            required: [true, 'Value required! Please provide a text value.'],
+            required: [true, 'Value required! Please provide a text value'],
         },
     },
     { timestamps: true }
